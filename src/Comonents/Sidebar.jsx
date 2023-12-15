@@ -8,7 +8,7 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="h-[100vh] w-1/5 py-5 bg-[#15202B] text-white flex flex-col items-center">
+    <div className="h-screen fixed w-1/4 py-5 bg-[#15202B] text-white flex flex-col items-center ">
         
         <div className="w-[95%] h-14 mb-5 flex items-center">
         <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/7950F2/yelp.png" alt="yelp"/>
