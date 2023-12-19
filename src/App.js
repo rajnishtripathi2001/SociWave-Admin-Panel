@@ -16,7 +16,7 @@ function App() {
   },[]);
 
   useEffect(() => {
-    const isSmallScreen = window.innerWidth<768;
+    const isSmallScreen = window.innerWidth<640;
 
     setScreenWidth(isSmallScreen);
     
@@ -29,7 +29,7 @@ function App() {
     <>
     {screenWidth ? (
       <div className="bg-red-500 w-[80%] text-white text-center p-6 rounded-md shadow-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-        <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FAB005/error--v1.png" alt="error--v1"/>
+        <img width="80" height="80" src="https://img.icons8.com/ios-filled/50/FAB005/error--v1.png" alt="error--v1"/> <br />
         <p>Sorry, this website is not accessible on small-width devices. Please use a PC, laptop, or tablet for the best experience.</p>
       </div>
 

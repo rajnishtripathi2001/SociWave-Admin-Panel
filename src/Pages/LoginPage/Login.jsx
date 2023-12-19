@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 
 export default function Login() {
@@ -13,12 +14,19 @@ export default function Login() {
     setData({...data,[name]:value});
   };
 
-  const login = (e) =>{
+  const login = async(e) =>{
     e.preventDefault();
-    if(data.username === "user101" && data.password === "user123"){
-      sessionStorage.setItem('loginStatus',true);
-      window.location.reload();
-    }
+    await axios.post('https://flask-production-2843.up.railway.app/login',data)
+    .then((response) => {
+      console.log(response);
+      sessionStorage.setItem('loginStatus',response.data.login);
+      sessionStorage.setItem('ID',response.data.ID);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+    window.location.reload();
     
   }
 

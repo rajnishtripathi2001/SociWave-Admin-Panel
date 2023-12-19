@@ -8,36 +8,54 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="h-screen fixed w-1/4 py-5 bg-[#15202B] text-white flex flex-col items-center ">
+    <div className="h-screen fixed w-[25vw] py-5 bg-[#15202B] text-white flex flex-col items-center ">
         
         <div className="w-[95%] h-14 mb-5 flex items-center">
         <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/7950F2/yelp.png" alt="yelp"/>
-        <b className="ml-3 text-[19px] ">SociWave Admin Panel</b>
+        <b className="ml-3 ">SociWave Admin Panel</b>
         </div>
         
         <div className="w-[95%] mb-5 h-[85vh]" >
           <div className="w-[100%] h-12 bg-slate-800 mt-4 px-4 flex items-center rounded-md">
-            <img width="20" height="20" src="https://img.icons8.com/ios/50/FFFFFF/home--v1.png" alt="home--v1"/>
+            <img width="20" height="20" src="https://img.icons8.com/fluency/48/control-panel.png" alt="home--v1"/>
             <b className="ml-5">Dashboard</b>
           </div>
           <div className="w-[100%] h-12 bg-slate-800 mt-4 px-4 flex items-center rounded-md">
-            <img width="20" height="20" src="https://img.icons8.com/ios/50/FFFFFF/home--v1.png" alt="home--v1"/>
-            <b className="ml-5">Dashboard</b>
+            <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/paper-plane.png" alt="home--v1"/>
+            <b className="ml-5">Mail</b>
+          </div>
+          <div className="w-[100%] h-12 bg-slate-800 mt-4 px-4 flex items-center rounded-md">
+            <img width="20" height="20" src="https://img.icons8.com/fluency/48/gender-neutral-user.png" alt="home--v1"/>
+            <b className="ml-5">Clients</b>
+          </div>
+          <div className="w-[100%] h-12 bg-slate-800 mt-4 px-4 flex items-center rounded-md">
+            <img width="20" height="20" src="https://img.icons8.com/fluency/48/purchase-order.png" alt="home--v1"/>
+            <b className="ml-5">Orders</b>
+          </div>
+          <div className="w-[100%] h-12 bg-slate-800 mt-4 px-4 flex items-center rounded-md">
+            <img width="20" height="20" src="https://img.icons8.com/fluency/48/complaint.png" alt="home--v1"/>
+            <b className="ml-5">Complaints</b>
+          </div>
+          <div className="w-[100%] h-12 bg-slate-800 mt-4 px-4 flex items-center rounded-md">
+            <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/22C3E6/wallet.png" alt="home--v1"/>
+            <b className="ml-5">Manage Wallet</b>
           </div>
 
           <div className="my-2 mx-1 w-[100%] text-gray-400">Admins</div>
 
           <div className="w-[100%] h-12 bg-slate-800 px-4 flex items-center rounded-md">
-            <img width="20" height="20" src="https://img.icons8.com/ios/50/FFFFFF/home--v1.png" alt="home--v1"/>
-            <b className="ml-5">Dashboard</b>
+            <img width="20" height="20" src="https://img.icons8.com/glyph-neue/64/22C3E6/admin-settings-male.png" alt="home--v1"/>
+            <b className="ml-5">Add Admins</b>
           </div>
+          <div className="w-[100%] h-12 bg-slate-800 mt-4 px-4 flex items-center rounded-md">
+            <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/22C3E6/online-maintenance-portal.png" alt="home--v1"/>
+            <b className="ml-5">Start Mentinense</b>
+          </div>
+          
 
         </div>
 
-        <div className="w-[95%] h-14  flex justify-around items-center bg-slate-800 rounded-md  " >
-          <img className="border-2 border-white rounded-full" width="40" height="40" src="https://img.icons8.com/ios-filled/50/FD7E14/old-man.png" alt="old-man"/>
-          <button className="bg-red-500 ml-20 p-1 rounded-md" onClick={logout}>Logout</button>
-        </div>
+          <button className="bg-red-500 w-[95%] p-1 rounded-md" onClick={logout}>Logout</button>
         
       </div>
   )
