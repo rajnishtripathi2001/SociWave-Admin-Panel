@@ -1,8 +1,8 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./Pages/HomePage/HomePage";
-import Login from "./Pages/LoginPage/Login";
+import HomePage from "./Pages/HomePage";
+import Login from "./Pages/Login";
 
 
 
