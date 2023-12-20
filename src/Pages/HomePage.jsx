@@ -114,7 +114,7 @@ export default function HomePage() {
       <MainScreen>
         <div className="flex flex-wrap justify-center">
           <a
-            href="#a"
+            href="/wallet"
             className="bg-[#15202B] w-[25%] text-white my-5 mx-5 h-48 rounded-xl text-center items-center p-[20px] flex flex-col justify-center"
           >
             <img
@@ -128,11 +128,11 @@ export default function HomePage() {
           </a>
 
           <a
-            href="#a"
+            href="/clients"
             className="bg-[#15202B] w-[25%] text-white my-5 mx-5 h-48 rounded-xl text-center items-center p-[20px] flex flex-col justify-center"
           >
             <img
-              className=" mb-5"
+              className="mb-5"
               width="100"
               height="100"
               src="https://img.icons8.com/bubbles/50/user.png"
@@ -142,17 +142,19 @@ export default function HomePage() {
           </a>
 
           <a
-            href="#a"
+            href="/mail"
             className="bg-[#15202B] w-[25%] text-white my-5 mx-5 h-48 rounded-xl text-center items-center p-[20px] flex flex-col justify-center"
           >
             <img
-              className="border-2 border-white rounded-full p-2 mb-5"
+              className="mb-5"
               width="94"
               height="94"
-              src="https://img.icons8.com/3d-fluency/94/card-wallet.png"
+              src="https://img.icons8.com/external-filled-outline-satawat-anukul/64/external-newmedia-new-media-filled-outline-filled-outline-satawat-anukul-21.png"
               alt="card-wallet"
             />
-            <b>Add Money In Wallet</b>
+            <b>
+              Mail Services
+            </b>
           </a>
         </div>
 

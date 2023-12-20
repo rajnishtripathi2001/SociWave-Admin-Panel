@@ -1,9 +1,10 @@
 import React from "react";
 
 export default function Sidebar() {
+
   const logout = () => {
     sessionStorage.clear();
-    window.location.reload();
+    window.location.href = "/";
   };
 
   return (
