@@ -10,6 +10,8 @@ import Wallets from "./Pages/Wallets";
 import Complaints from "./Pages/Complaints";
 import Admin from "./Pages/Admin";
 import Maintenance from "./Pages/Maintenance";
+import AccessDenied from "./Comonents/AccessDenied";
+import Page404 from "./Comonents/Page404";
 
 
 
@@ -30,34 +32,28 @@ function App() {
   }, []);
 
 
-
-
   return (
     <>
-    {screenWidth ? (
-      <div className="bg-red-500 w-[80%] text-white text-center p-6 rounded-md shadow-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-        <img width="80" height="80" src="https://img.icons8.com/ios-filled/50/FAB005/error--v1.png" alt="error--v1"/> <br />
-        <p>Sorry, this website is not accessible on small-width devices. Please use a PC, laptop, or tablet for the best experience.</p>
-      </div>
+      {screenWidth ? (
+        <div className="bg-red-500 w-[80%] text-white text-center p-6 rounded-md shadow-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+          <img width="80" height="80" src="https://img.icons8.com/ios-filled/50/FAB005/error--v1.png" alt="error--v1"/> <br />
+          <p>Sorry, this website is not accessible on small-width devices. Please use a PC, laptop, or tablet for the best experience.</p>
+        </div>
 
-    ):(
-      <Routes>
-        <Route path="/" exact element={loginStatus ? <HomePage/> : <Login/>} />
-        <Route path="/dashboard" exact element={loginStatus ? <HomePage/> : <Login/>} />
-        <Route path="/mail" element={<Mail/>} />
-        <Route path="/clients" element={<Clients/>} />
-        <Route path="/orders" element={<Orders/>} />
-        <Route path="/complaints" element={<Complaints/>} />
-        <Route path="/wallet" element={<Wallets/>}/>
-        <Route path="/admin" element={<Admin/>} />
-        <Route path="/maintenance" element={<Maintenance/>} />
-        <Route path="*" element={<h1>Not Found</h1>} />
-
-      </Routes>
-
-    )}
-
-      
+      ):(
+        <Routes>
+          <Route path="/" exact element={loginStatus ? <HomePage/> : <Login/>} />
+          <Route path="/dashboard" exact element={loginStatus ? <HomePage/> : <Login/>} />
+          <Route path="/mail" element={loginStatus ? <Mail/> : <AccessDenied/>} />
+          <Route path="/clients" element={loginStatus ? <Clients/> : <AccessDenied/>} />
+          <Route path="/orders" element={loginStatus ? <Orders/> : <AccessDenied/>} />
+          <Route path="/complaints" element={loginStatus ? <Complaints/> : <AccessDenied/>} />
+          <Route path="/wallet" element={loginStatus ? <Wallets/> : <AccessDenied/>}/>
+          <Route path="/admin" element={loginStatus ? <Admin/> : <AccessDenied/>} />
+          <Route path="/maintenance" element={loginStatus ? <Maintenance/> : <AccessDenied/>} />
+          <Route path="*" element={<Page404/>} />
+        </Routes>
+      )}   
     </>
   );
 };
