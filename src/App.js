@@ -3,6 +3,13 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import Login from "./Pages/Login";
+import Mail from "./Pages/Mail";
+import Clients from "./Pages/Clients";
+import Orders from "./Pages/Orders";
+import Wallets from "./Pages/Wallets";
+import Complaints from "./Pages/Complaints";
+import Admin from "./Pages/Admin";
+import Maintenance from "./Pages/Maintenance";
 
 
 
@@ -36,7 +43,14 @@ function App() {
     ):(
       <Routes>
         <Route path="/" exact element={loginStatus ? <HomePage/> : <Login/>} />
-        <Route path="/" exact element={loginStatus ? <HomePage/> : <Login/>} />
+        <Route path="/dashboard" exact element={loginStatus ? <HomePage/> : <Login/>} />
+        <Route path="/mail" element={<Mail/>} />
+        <Route path="/clients" element={<Clients/>} />
+        <Route path="/orders" element={<Orders/>} />
+        <Route path="/complaints" element={<Complaints/>} />
+        <Route path="/wallet" element={<Wallets/>}/>
+        <Route path="/admin" element={<Admin/>} />
+        <Route path="/maintenance" element={<Maintenance/>} />
         <Route path="*" element={<h1>Not Found</h1>} />
 
       </Routes>
