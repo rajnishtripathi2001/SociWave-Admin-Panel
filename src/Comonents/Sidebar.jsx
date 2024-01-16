@@ -82,7 +82,7 @@ export default function Sidebar() {
             src="https://img.icons8.com/fluency/48/complaint.png"
             alt="home--v1"
           />
-          <b className="ml-5">Complaints</b>
+          <b className="ml-5">Transactions</b>
         </a>
 
         <a

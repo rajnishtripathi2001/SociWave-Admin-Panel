@@ -19,7 +19,7 @@ export default function Login() {
       return;
     } else {
       await axios
-        .post("https://flask-production-2843.up.railway.app/login", data) // https://flask-production-2843.up.railway.app/login
+        .post("https://flask-backend.up.railway.app/login", data)
         .then((response) => {
           console.log(response);
           if (response.data.message === "Successful") {

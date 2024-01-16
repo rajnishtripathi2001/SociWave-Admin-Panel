@@ -1,14 +1,34 @@
 import { React, useState } from "react";
 import Sidebar from "../Comonents/Sidebar";
 import MainScreen from "../Comonents/MainScreen";
+import axios from "axios";
 
 export default function Mail() {
   const [to, setTo] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = () => {
-    alert("Mail Sent");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (to === "" || subject === "" || message === "") {
+      alert("Please enter all the fields");
+      return;
+    } else {
+      const data = { to, subject, message };
+      await axios
+        .post("https://flask-backend.up.railway.app/sendEmail", data)
+        .then((response) => {
+          if (response.data.message === "Successful") {
+            alert("Email sent");
+          } else {
+            alert("Email not sent");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    // window.location.reload();
   };
 
   return (
