@@ -1,8 +1,24 @@
-import React from "react";
+import {React,useState} from "react";
 import Sidebar from "../Comonents/Sidebar";
 import MainScreen from "../Comonents/MainScreen";
+import AddMoney from "../Comonents/AddMoney";
+import Transactions from "../Comonents/Transactions";
 
 export default function Wallets() {
+
+  const[moneyScreen,setMoneyScreen]=useState(false);
+  const[transactionScreen,setTransactionScreen]=useState(false);
+
+  const handleMoneyScreen=()=>{
+    setMoneyScreen(true);
+    setTransactionScreen(false);
+  };
+
+  const handleTransactionScreen=()=>{
+    setMoneyScreen(false);
+    setTransactionScreen(true);
+  };
+
   return (
     <div className="flex">
       <Sidebar />
@@ -51,16 +67,17 @@ export default function Wallets() {
               </tr>
             </table>
 
-            <div className="my-2 flex">
-              <div className="w-4/5 bg-pink-400 h-[55vh] p-5">
-                <div>add mony</div>
-                <div>all transac</div>
+            <div className="mt-7 flex">
+              <div className="w-4/5 h-[55vh]">
+                {moneyScreen ? <AddMoney/> : null}
+                {transactionScreen ? <Transactions/> : null}
               </div>
+              <div className="content-none h-[100] w-[0.9px] ml-5 bg-gray-600"></div>
               <div className="w-1/5 h-[55vh] px-5">
-                <button className="bg-blue-500 text-white px-4 py-2 w-full rounded-md my-1">
+                <button className="bg-blue-500 text-white px-4 py-2 w-full rounded-md my-1" onClick={handleMoneyScreen} >
                   Add Money
                 </button>
-                <button className="bg-blue-500 text-white px-4 py-2 w-full rounded-md my-1">
+                <button className="bg-blue-500 text-white px-4 py-2 w-full rounded-md my-1" onClick={handleTransactionScreen} >
                   See All Transactions
                 </button>
                 <button className="bg-green-500 text-white px-4 py-2 w-full rounded-md my-1">
