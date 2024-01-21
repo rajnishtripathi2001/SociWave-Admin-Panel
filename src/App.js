@@ -7,7 +7,7 @@ import Mail from "./Pages/Mail";
 import Clients from "./Pages/Clients";
 import Orders from "./Pages/Orders";
 import Wallets from "./Pages/Wallets";
-import Complaints from "./Pages/Complaints";
+import Transactions from "./Pages/Transactions";
 import Admin from "./Pages/Admin";
 import Maintenance from "./Pages/Maintenance";
 import AccessDenied from "./Comonents/AccessDenied";
@@ -46,7 +46,7 @@ function App() {
           <Route path="/mail" element={loginStatus ? <Mail/> : <AccessDenied/>} />
           <Route path="/clients" element={loginStatus ? <Clients/> : <AccessDenied/>} />
           <Route path="/orders" element={loginStatus ? <Orders/> : <AccessDenied/>} />
-          <Route path="/complaints" element={loginStatus ? <Complaints/> : <AccessDenied/>} />
+          <Route path="/transactions" element={loginStatus ? <Transactions/> : <AccessDenied/>} />
           <Route path="/wallet" element={loginStatus ? <Wallets/> : <AccessDenied/>}/>
           <Route path="/admin" element={loginStatus ? <Admin/> : <AccessDenied/>} />
           <Route path="/maintenance" element={loginStatus ? <Maintenance/> : <AccessDenied/>} />

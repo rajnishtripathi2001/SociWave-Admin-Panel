@@ -73,7 +73,7 @@ export default function Sidebar() {
         </a>
 
         <a
-          href="/complaints"
+          href="/transactions"
           className="w-[100%] h-12 bg-slate-800 mt-4 px-4 flex items-center rounded-md"
         >
           <img

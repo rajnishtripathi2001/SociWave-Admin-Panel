@@ -1,14 +1,16 @@
-import { React, useEffect, useState } from "react";
-import Sidebar from "../Comonents/Sidebar";
-import MainScreen from "../Comonents/MainScreen";
-import axios from "axios";
+import {React,useState,useEffect} from 'react'
+import Sidebar from '../Comonents/Sidebar'
+import MainScreen from '../Comonents/MainScreen'
+import axios from 'axios';
 
-export default function Orders() {
+
+export default function Transactions() {
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://flask-backend.up.railway.app/orders")
+      .get("https://flask-backend.up.railway.app/transactions")
       .then((response) => {
         setData(response.data.Info.reverse());
       })
@@ -17,72 +19,68 @@ export default function Orders() {
       });
   }, []);
 
-  const orderCompleted = (id, uID) => {
-    console.log(id);
-    axios
-      .post("https://flask-backend.up.railway.app/delivered", { id, uID })
-      .then(() => {
-        window.location.reload();
-      });
-  };
+  const verifyTransaction = (id)=>{
+    axios.post("https://flask-backend.up.railway.app/verifyTransaction",{id})
+    .then(() => {
+      window.location.reload();
+    });
+  }
 
   return (
-    <div className="flex">
-      <Sidebar />
-      <MainScreen>
+    <div className='flex'>
+        <Sidebar/>
+        <MainScreen>
         <div className="border overflow-auto w-full">
           <div class="relative overflow-x-auto shadow-md ">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th scope="col" class="px-6 py-3">
-                    Order Date
-                  </th>
-                  <th scope="col" class="px-6 py-3">
                     User ID
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    Order Type
+                    Name
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    Work Link
-                  </th>
-
-                  <th scope="col" class="px-6 py-3">
-                    Amount
+                    Email
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    Action
+                    Transaction ID
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Transaction Date
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Verification
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((item) => (
                   <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      {item.orderDate}
-                    </td>
                     <td class="px-6 py-4">{item.uID}</td>
-                    <td class="px-6 py-4">{item.orderType}</td>
-                    <td class="px-6 py-4">{item.workLink}</td>
-
-                    <td class="px-6 py-4">{item.amount}</td>
+                    <td class="px-6 py-4">{item.name}</td>
+                    <td class="px-6 py-4">{item.email}</td>
+                    <td class="px-6 py-4">{item.transactionID}</td>
+                    <td class="px-6 py-4">{item.transactionDate}</td>
                     <td class="px-6 py-4">
-                      {item.action === "Pending" ? (
+                    {item.verification === "Pending" ? (
                         <button
-                          className="bg-blue-500 text-white float-left px-4 py-2 rounded-md"
-                          onClick={() => orderCompleted(item._id, item.uID)}
+                          className="bg-blue-500 w-[82.38px] text-white float-left px-4 py-2 rounded-md"
+                          onClick={() => verifyTransaction(item._id)}
                         >
-                          {item.action}
+                          Verify
                         </button>
                       ) : (
                         <button
-                          className="bg-green-500 w-[82.38px] text-white float-left px-4 py-2 rounded-md"
+                          className="bg-red-500  text-white float-left px-4 py-2 rounded-md"
                           disabled
                         >
-                          {item.action}
+                          Verified
                         </button>
                       )}
+
+
                     </td>
                   </tr>
                 ))}
@@ -90,7 +88,7 @@ export default function Orders() {
             </table>
           </div>
         </div>
-      </MainScreen>
+        </MainScreen>
     </div>
-  );
+  )
 }
