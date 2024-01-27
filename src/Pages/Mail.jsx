@@ -28,7 +28,7 @@ export default function Mail() {
           console.log(error);
         });
     }
-    // window.location.reload();
+    window.location.reload();
   };
 
   return (
